@@ -23,10 +23,18 @@
 
                                             <div class="input-group input-group-outline @if(strlen($name?? '') > 0) is-filled @endif">
                                                 <label class="form-label">Name</label>
-                                                <input wire:model="name" type="text" class="form-control" 
+                                                <input wire:model="name" type="text" class="form-control"
                                                 >
                                             </div>
                                             @error('name')
+                                            <p class='text-danger inputerror'>{{ $message }} </p>
+                                            @enderror
+
+                                            <div class="input-group input-group-outline @if(strlen($phone?? '') > 0) is-filled @endif">
+                                                <label class="form-label">Phone</label>
+                                                <input wire:model="phone" type="text" class="form-control">
+                                            </div>
+                                            @error('phone')
                                             <p class='text-danger inputerror'>{{ $message }} </p>
                                             @enderror
 
@@ -39,6 +47,15 @@
                                             <p class='text-danger inputerror'>{{ $message }} </p>
                                             @enderror
 
+                                            <div class="input-group input-group-outline mt-3 @if(strlen($location ?? '') > 0) is-filled @endif">
+                                                <label class="form-label">Location</label>
+                                                <input wire:model="location" type="text"  class="form-control"
+                                                     >
+                                            </div>
+                                            @error('location')
+                                            <p class='text-danger inputerror'>{{ $message }} </p>
+                                            @enderror
+
                                             <div class="input-group input-group-outline mt-3 @if(strlen($password ?? '') > 0) is-filled @endif">
                                                 <label class="form-label">Password</label>
                                                 <input wire:model="password" type="password" class="form-control" >
@@ -46,6 +63,15 @@
                                             @error('password')
                                             <p class='text-danger inputerror'>{{ $message }} </p>
                                             @enderror
+
+                                            <div class="input-group input-group-outline mt-3 @if(strlen($password_confirmation ?? '') > 0) is-filled @endif">
+                                                <label class="form-label">Confirm Password</label>
+                                                <input wire:model="password_confirmation" type="password" class="form-control">
+                                            </div>
+                                            @error('password_confirmation')
+                                            <p class='text-danger inputerror'>{{ $message }} </p>
+                                            @enderror
+
                                             <div class="form-check form-check-info text-start ps-0 mt-3">
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="flexCheckDefault" checked>
