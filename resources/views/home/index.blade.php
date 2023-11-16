@@ -27,9 +27,11 @@
               <a class="text-white dark:text-gray-100 hover:underline" href="{{ route('login') }}" rel="ugc">Login</a>
             </nav>
 
-            <button class="mt-4 lg:mt-0 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
-              Subscribe Now
-            </button>
+            <a href="{{ route('login', ['from_subscribe' => true]) }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+                Subscribe Now
+            </a>
+
+
           </header>
         <main class="flex-grow">
             {{-- <section class="flex flex-col bg-gradient-to-r from-rose-300 via-rose-200 to-rose-100 items-center justify-center space-y-4 px-8 py-20 bg-cover">

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Publication extends Model
 {
     use HasFactory;
+
+    protected $table = 'publications';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'price',
+    ];
 }

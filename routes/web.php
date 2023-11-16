@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\ExampleLaravel\UserManagement;
 use App\Http\Livewire\ExampleLaravel\UserProfile;
+use App\Http\Livewire\Admin\Publications\Index as PubIndex;
+use App\Http\Livewire\Admin\Publications\Add as PubAdd;
+use App\Http\Livewire\Admin\Publications\Edit  as PubEdit;
+
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\RTL;
@@ -16,6 +20,7 @@ use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Tables;
 use App\Http\Controllers\Home\Index;
+use App\Http\Controllers\Subscription\Subscribe;
 use App\Http\Livewire\VirtualReality;
 use GuzzleHttp\Middleware;
 
@@ -45,8 +50,18 @@ Route::get('sign-in', Login::class)->middleware('guest')->name('login');
 Route::get('user-profile', UserProfile::class)->middleware('auth')->name('user-profile');
 Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');
 
-
+Route::get('/subscription', [Subscribe::class, 'index'])->name('subscribe');
 Route::group(['middleware' => 'auth'], function () {
+/*
+|--------------------------------------------------------------------------
+| User administration routes
+|--------------------------------------------------------------------------
+*/
+Route::get('subscription', [Subscribe::class, 'index'])->name('subscribe');
+
+Route::get('publications', PubIndex::class)->name('manage-publications');
+Route::post('add-new-publication', PubAdd::class)->name('add-publication');
+Route::get('edit-publication/{id}', PubEdit::class)->name('edit-publication');
 Route::get('dashboard', Dashboard::class)->name('dashboard');
 Route::get('billing', Billing::class)->name('billing');
 Route::get('profile', Profile::class)->name('profile');
