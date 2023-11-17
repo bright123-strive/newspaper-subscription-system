@@ -17,4 +17,9 @@ class Publication extends Model
         'name',
         'price',
     ];
+
+    public function subscriptions()
+{
+    return $this->belongsToMany(Subscription::class)->withPivot('copies', 'total_price');
+}
 }

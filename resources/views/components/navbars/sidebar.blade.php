@@ -42,6 +42,24 @@
                     <span class="nav-link-text ms-1">publication Management</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'subscribe' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('subscribe') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'mysubscriptions' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('mysubscriptions') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">My Subscriptions</span>
+                </a>
+            </li>
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Pages</h6>
             </li>

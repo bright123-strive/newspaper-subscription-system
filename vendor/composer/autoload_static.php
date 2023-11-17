@@ -101,6 +101,7 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
             'Psr\\Http\\Client\\' => 16,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
@@ -342,8 +343,8 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -356,6 +357,10 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
         'PhpParser\\' => 
         array (
@@ -511,7 +516,14 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Home\\Index' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/Index.php',
+        'App\\Http\\Controllers\\Subscription\\Subscribe' => __DIR__ . '/../..' . '/app/Http/Controllers/Subscription/Subscribe.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Livewire\\Admin\\Publications\\Add' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Publications/Add.php',
+        'App\\Http\\Livewire\\Admin\\Publications\\Edit' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Publications/Edit.php',
+        'App\\Http\\Livewire\\Admin\\Publications\\Index' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Publications/Index.php',
+        'App\\Http\\Livewire\\Admin\\Subscribers\\Index' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Subscribers/Index.php',
+        'App\\Http\\Livewire\\Admin\\Users\\Index' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Users/Index.php',
         'App\\Http\\Livewire\\Auth\\ForgotPassword' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth/ForgotPassword.php',
         'App\\Http\\Livewire\\Auth\\Login' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth/Login.php',
         'App\\Http\\Livewire\\Auth\\Logout' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth/Logout.php',
@@ -521,6 +533,7 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         'App\\Http\\Livewire\\Dashboard' => __DIR__ . '/../..' . '/app/Http/Livewire/Dashboard.php',
         'App\\Http\\Livewire\\ExampleLaravel\\UserManagement' => __DIR__ . '/../..' . '/app/Http/Livewire/ExampleLaravel/UserManagement.php',
         'App\\Http\\Livewire\\ExampleLaravel\\UserProfile' => __DIR__ . '/../..' . '/app/Http/Livewire/ExampleLaravel/UserProfile.php',
+        'App\\Http\\Livewire\\Home\\Index' => __DIR__ . '/../..' . '/app/Http/Livewire/Home/Index.php',
         'App\\Http\\Livewire\\Notifications' => __DIR__ . '/../..' . '/app/Http/Livewire/Notifications.php',
         'App\\Http\\Livewire\\Profile' => __DIR__ . '/../..' . '/app/Http/Livewire/Profile.php',
         'App\\Http\\Livewire\\RTL' => __DIR__ . '/../..' . '/app/Http/Livewire/RTL.php',
@@ -536,6 +549,8 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Publication' => __DIR__ . '/../..' . '/app/Models/Publication.php',
+        'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\ResetPassword' => __DIR__ . '/../..' . '/app/Notifications/ResetPassword.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -4651,6 +4666,7 @@ class ComposerStaticInitc263374d0e04444fa208f391cd5a169e
         'PhpParser\\PrettyPrinterAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php',
         'PhpParser\\PrettyPrinter\\Standard' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinter/Standard.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+        'Psr\\Clock\\ClockInterface' => __DIR__ . '/..' . '/psr/clock/src/ClockInterface.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',

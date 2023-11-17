@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use App\Models\User;
 
 
 class Login extends Component
@@ -57,17 +58,14 @@ class Login extends Component
     }
 
     session()->regenerate();
-    Log::info('Session ID: ' . session()->getId());
-    $fromSubscribe = session('from_subscribe', 'false');
+//  $user = auth()->user();
+//      dd('Before increment', $user->login_count);
 
-    // Check if the user came from the "Subscribe Now" button
-    if (request('from_subscribe')) {
+//      $user->increment('login_count', +50);
 
-        // Redirect to the subscription page
-        return redirect()->route('subscribe');
-    }
+//     // Debugging: Check if the increment operation has taken effect
+//     dd('After increment', $user->login_count);
 
-    // Default behavior: Redirect to the dashboard
     return redirect('/dashboard');
 }
 

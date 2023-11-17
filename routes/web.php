@@ -12,6 +12,7 @@ use App\Http\Livewire\ExampleLaravel\UserProfile;
 use App\Http\Livewire\Admin\Publications\Index as PubIndex;
 use App\Http\Livewire\Admin\Publications\Add as PubAdd;
 use App\Http\Livewire\Admin\Publications\Edit  as PubEdit;
+use App\Http\Livewire\Admin\Subscribers\MySubScriptions as MySubs;
 
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Profile;
@@ -50,18 +51,24 @@ Route::get('sign-in', Login::class)->middleware('guest')->name('login');
 Route::get('user-profile', UserProfile::class)->middleware('auth')->name('user-profile');
 Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');
 
-Route::get('/subscription', [Subscribe::class, 'index'])->name('subscribe');
+
+
 Route::group(['middleware' => 'auth'], function () {
 /*
 |--------------------------------------------------------------------------
 | User administration routes
 |--------------------------------------------------------------------------
 */
-Route::get('subscription', [Subscribe::class, 'index'])->name('subscribe');
 
+Route::post('/subscribing', [Subscribe::class, 'store']);
+Route::post('/subscribing', [Subscribe::class, 'store']);
+Route::get('subscription', [Subscribe::class, 'index'])->name('subscribe');
 Route::get('publications', PubIndex::class)->name('manage-publications');
-Route::post('add-new-publication', PubAdd::class)->name('add-publication');
+Route::get('add-new-publication', PubAdd::class)->name('add-publication');
 Route::get('edit-publication/{id}', PubEdit::class)->name('edit-publication');
+
+Route::get('mysubscriptions', MySubs::class)->name('mysubscriptions');
+
 Route::get('dashboard', Dashboard::class)->name('dashboard');
 Route::get('billing', Billing::class)->name('billing');
 Route::get('profile', Profile::class)->name('profile');
