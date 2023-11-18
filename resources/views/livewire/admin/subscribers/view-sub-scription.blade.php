@@ -51,26 +51,21 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                ID
-                                            </th>
+
 
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                TOTAL COPIES</th>
+                                                PUBLICATION</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                TOTAL PRICE</th>
+                                                COPIES</th>
 
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                               DAYS REMAINING
+                                               PRICE
                                             </th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                STATUS</th>
-                                            <th class="text-secondary opacity-7">ACTION</th>
+
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -80,33 +75,21 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    {{$subscription['subscription_id'] }}
+                                                    {{$subscription->publication_name}}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
 
-                                                    {{$subscription['total_copies']  }}
+                                                    {{$subscription->copies  }}
                                                 </div>
                                             </td>
 
                                             <td class="align-middle text-center text-sm">
-                                                {{$subscription['total_price']  }}
+                                                {{$subscription->total_price  }}
                                             </td>
-                                            <td class="align-middle text-center">
-                                                {{$subscription['remaining_days'] }}
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                {{$subscription['status'] }}
-                                            </td>
-                                            <td class="align-middle">
-                                                <a rel="tooltip" class="btn btn-success btn-link"
-                                                    href="{{ route('view-subscription', $subscription['subscription_id'])}}" data-original-title=""
-                                                    title="">
-                                                    <i class="fa fa-eye"></i>
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </td>
+
+
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -117,4 +100,6 @@
                 </div>
             </div>
         </div>
+
+
 

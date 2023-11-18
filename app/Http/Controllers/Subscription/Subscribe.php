@@ -21,6 +21,7 @@ class Subscribe extends Controller
         return view('subscription.subscribe')->with([
            "publications" => Publication::all(),
            "location"     => $user->location,
+           "region"     => $user->region,
         ]);
     }
 
@@ -43,6 +44,7 @@ class Subscribe extends Controller
         $subscription = new Subscription([
             'user_id' => auth()->id(),
             'location' => $request->input('location'),
+            'region' => $request->input('region'),
             'start_date' => $startDate,
             'end_date' => $endDate,
             'price' => 8000, // You might want to calculate the total amount server-side

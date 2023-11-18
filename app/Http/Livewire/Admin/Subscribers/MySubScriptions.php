@@ -43,7 +43,7 @@ class MySubScriptions extends Component
             ];
         }
 
-        
+
 
         return view('livewire.admin.subscribers.my-sub-scriptions', [
             'subscriptionData' => $subscriptionData,

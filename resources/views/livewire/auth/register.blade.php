@@ -52,7 +52,18 @@
                                                 <input wire:model="location" type="text"  class="form-control"
                                                      >
                                             </div>
-                                            @error('location')
+                                            <div class="input-group input-group-outline mt-3 @if(strlen($location ?? '') > 0) is-filled @endif">
+                                                <select wire:model="region"   class="form-control">
+                                                    <option value="">Select Region</option>
+                                                    <option value="Northern">Northern</option>
+                                                    <option value="Central">Center</option>
+                                                    <option value="Southern">Southern</option>
+
+
+
+                                                </select>
+                                            </div>
+                                            @error('region')
                                             <p class='text-danger inputerror'>{{ $message }} </p>
                                             @enderror
 

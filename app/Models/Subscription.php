@@ -18,6 +18,7 @@ class Subscription extends Model
         'user_id',
         'publication_id',
         'location',
+        'region',
         'start_date',
         'end_date',
         "price",

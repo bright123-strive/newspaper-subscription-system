@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("publication_id")->nullable();
             $table->string("location");
+            $table->string("region");
             $table->date("start_date");
             $table->date("end_date");
             $table->float("price");

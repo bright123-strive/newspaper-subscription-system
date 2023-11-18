@@ -12,6 +12,7 @@ class Register extends Component
     public $email = '';
     public $phone = '';
     public $location = '';
+    public $region = '';
     public $password = '';
     public $password_confirmation= '';
     protected $rules = [
@@ -19,6 +20,7 @@ class Register extends Component
         'email' => 'required|email|unique:users,email',
         'phone' => 'required|regex:/^\+[0-9]{1,15}$/|unique:users,phone',
         'location' => 'required',
+        'region' => 'required',
         'password' => 'required|min:8|confirmed|regex:/^(?=.*[A-Z])(?=.*[@_&])[A-Za-z\d@_&]+$/',
     ];
     protected $messages = [
