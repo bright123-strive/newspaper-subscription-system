@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Subscription;
 use Carbon\Carbon;
+use PDF;
 
 class Subscribe extends Controller
 {
 
     public $subscriptionDuration= " ";
+    public $userPublications = [];
+    public $duration = "";
 
     public function index()
     {
@@ -37,8 +40,7 @@ class Subscribe extends Controller
         $startDate = Carbon::now();
         $endDate = $startDate->copy()->addMonths($request->input('subscription_duration'));
         $numberOfDays = $endDate->diffInDays($startDate);
-
-
+        $this->duration=$request->input('subscription_duration');
 
         // Create a subscription record
         $subscription = new Subscription([
@@ -55,21 +57,10 @@ class Subscribe extends Controller
         // Attach selected publications with copies to the subscription
         $publications = $request->input('publication');
 
+
+
         $copies = $request->input('copies');
 
-        // foreach ($publications as $key => $publicationId) {
-        //     $copyCount = $copies[$key];
-
-        //     // Assuming you have a relationship between Subscription and Publication
-        //     $subscription->publications()->attach($publicationId, [
-        //         'copies' => $copyCount,
-        //         // Add other relevant details you want to store in the pivot table
-        //     ]);
-
-        //     // Optionally, you can decrement the available copies in the publications table
-        //     $publicationModel = Publication::find($publicationId);
-        //     // $publicationModel->decrement('copies', $copyCount);
-        // }
 
         foreach ($publications as $key => $publicationId) {
             $copyCount = $copies[$key];
@@ -79,6 +70,16 @@ class Subscribe extends Controller
 
             // Calculate the total price for the current publication
             $totalPrice = $publicationModel->price * $copyCount * $numberOfDays;
+
+            $this->userPublications[] = [
+                'publication_id' => $publicationId,
+                'copies' => $copyCount,
+                'publication_name' => $publicationModel->name,
+                'price' => $publicationModel->price,
+                'total_price' => $totalPrice,
+            ];
+
+
 
             // Attach the publication to the current subscription with the number of copies and total price
             $subscription->publications()->attach($publicationId, [
@@ -92,9 +93,42 @@ class Subscribe extends Controller
         }
 
 
+      // create sessions data for pdf generation
+      session([
+        'location' => $subscription->location,
+        'region' => $subscription->region,
+        'startDate' => $startDate,
+        'endDate' => $endDate,
+        'duration' => $this->duration,
+        'user' => auth()->user(),
+        'publications' => $this->userPublications,
+        'totalPrice' => $totalPrice,
+    ]);
+
         // Redirect or show success message
-        return redirect()->route('dashboard')->with('success', 'Subscription successful!');
+        return view('subscription.receipt')->with([
+            'location' => $subscription->location,
+            'region' => $subscription->region,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+            'duration' => $this->duration,
+            'user' => auth()->user(),
+            'publications' => $this->userPublications,
+            'totalPrice' => $totalPrice,
+        ]);
     }
+
+    public function exportPdf()
+{
+    // Retrieve data from the session
+    $data = session()->all();
+
+    $pdf = PDF::loadView('livewire.admin.report.pdf.timebyengagementreport', [
+        'sessionData' => $data,
+    ]);
+    return $pdf->download(auth()->user()->name.".pdf");
+}
+
 
 
 
