@@ -14,6 +14,7 @@ use App\Http\Livewire\Admin\Publications\Add as PubAdd;
 use App\Http\Livewire\Admin\Publications\Edit  as PubEdit;
 use App\Http\Livewire\Admin\Subscribers\MySubScriptions as MySubs;
 use App\Http\Livewire\Admin\Subscribers\ViewSubScription as ViewSub;
+use App\Http\Livewire\Admin\SubscriptionMgt\Index as SubIndex;
 
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Profile;
@@ -75,6 +76,8 @@ Route::get('edit-publication/{id}', PubEdit::class)->name('edit-publication');
 
 Route::get('mysubscriptions', MySubs::class)->name('mysubscriptions');
 Route::get('view-subscription/{id}', ViewSub::class)->name('view-subscription');
+
+Route::get('all-subscriptions', SubIndex::class)->name('all-subscriptions');
 
 Route::get('dashboard', Dashboard::class)->name('dashboard');
 Route::get('billing', Billing::class)->name('billing');

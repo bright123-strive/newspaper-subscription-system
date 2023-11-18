@@ -15,6 +15,25 @@
         body {
     margin-top: 20px;
 }
+
+table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
     </style>
 </head>
 <body>
@@ -90,7 +109,7 @@
                         <?php
                               $total_price= 0 ;
                             ?>
-                        @foreach($SessionData['publications'] as $publication)
+                        @foreach($sessionData['publications'] as $publication)
                             <tr>
                                 <td class="col-md-9"><em>{{ $publication['publication_name'] }}</em></td>
                                 <td class="col-md-1" style="text-align: center">{{ $publication['copies'] }}</td>

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date("end_date");
             $table->float("price");
             $table->unsignedBigInteger("copies")->nullable();
-            $table->string("status")->default("active");
+            $table->string("status")->default("inactive");
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('publication_id')->references('id')->on('publications')->onDelete('cascade');

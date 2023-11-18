@@ -126,9 +126,20 @@
                 <button type="button" class="btn btn-success btn-lg btn-block">
                     Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
+                <a  id="download-button" href="{{ route('export-to-pdf') }}" class="btn btn-success btn-lg btn-block">
+                    Download PDF and return to dashboard    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
         </div>
     </div>
 
 </body>
 </html>
+<script>
+    document.getElementById('download-button').addEventListener('click', function() {
+        // When the download button is clicked, set a timeout to redirect after a delay
+        setTimeout(function () {
+            window.location.href = '{{ route("dashboard") }}'; // Replace 'dashboard' with the actual route name
+        }, 5000); // Set a timeout (3 seconds in this example) to allow time for the download to start
+    });
+</script>

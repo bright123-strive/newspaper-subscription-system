@@ -123,7 +123,7 @@ class Subscribe extends Controller
     // Retrieve data from the session
     $data = session()->all();
 
-    $pdf = PDF::loadView('livewire.admin.report.pdf.timebyengagementreport', [
+    $pdf = PDF::loadView('subscription.generatePdf', [
         'sessionData' => $data,
     ]);
     return $pdf->download(auth()->user()->name.".pdf");
