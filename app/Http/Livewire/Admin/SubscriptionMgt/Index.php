@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\SubscriptionMgt;
 
 use Livewire\Component;
 use App\Models\Subscription;
+use Carbon\Carbon;
 
 
 
@@ -12,6 +13,23 @@ use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
+
+
+    public function activateSubscription($id)
+    {
+        // Retrieve the subscription duration
+        $duration = Subscription::where('id', $id)->first()->duration;
+
+        // Update all subscriptions with the given ID
+        Subscription::where('id', $id)->update([
+            'status' => 'active',
+            'start_date' => now(),
+            'end_date' => now()->addMonths($duration),
+        ]);
+
+        return redirect(route('all-subscriptions'))->with('status', 'Subscription activated.');
+    }
+
     public function render()
     {
 

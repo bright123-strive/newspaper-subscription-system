@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("region");
             $table->date("start_date");
             $table->date("end_date");
-            $table->float("price");
+            $table->string("duration");
             $table->unsignedBigInteger("copies")->nullable();
             $table->string("status")->default("inactive");
             $table->timestamps();

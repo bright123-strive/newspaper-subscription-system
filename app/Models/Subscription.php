@@ -21,7 +21,7 @@ class Subscription extends Model
         'region',
         'start_date',
         'end_date',
-        "price",
+        "duration",
         "copies",
         "total_price",
     ];

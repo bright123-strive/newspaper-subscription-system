@@ -137,6 +137,13 @@
                                                     <i class="fa fa-eye"></i>
                                                     <div class="ripple-container"></div>
                                                 </a>
+
+                                                <button type="button" class="btn btn-success btn-lg btn-link" data-original-title="" title=""
+                                            onclick="confirm('Are you sure you want to submit this timesheet?') || event.stopImmediatePropagation()"
+                                            wire:click="activateSubscription('{{ $subscription['subscription_id'] }}')">
+                                        Approve
+                                        <div class="ripple-container"></div>
+                                    </button>
                                             </td>
                                         </tr>
                                         @endforeach

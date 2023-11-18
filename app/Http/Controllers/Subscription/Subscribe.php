@@ -49,7 +49,8 @@ class Subscribe extends Controller
             'region' => $request->input('region'),
             'start_date' => $startDate,
             'end_date' => $endDate,
-            'price' => 8000, // You might want to calculate the total amount server-side
+            'duration' => $this->duration,
+             // You might want to calculate the total amount server-side
         ]);
 
         $subscription->save();
