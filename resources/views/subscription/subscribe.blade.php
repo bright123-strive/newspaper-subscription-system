@@ -375,7 +375,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="input-group input-group-outline  my-3">
-                    <select name="subscription_duration" id="subscription_duration" class="form-control pb-4">
+                    <select name="subscription_duration" id="subscription_duration" class="form-control pb-4" required>
                         <option value="">select duration</option>
                         <option value="1">1 Month</option>
                     <option value="3">3 Months</option>

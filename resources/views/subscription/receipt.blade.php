@@ -126,7 +126,7 @@
                 <button type="button" class="btn btn-success btn-lg btn-block">
                     Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
-                <a  id="download-button" href="{{ route('export-to-pdf') }}" class="btn btn-success btn-lg btn-block">
+                <a href="{{ route('export-to-pdf') }}" class="btn btn-success btn-lg btn-block">
                     Download    <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
                 <a  id="download-button" href="{{ route('dashboard') }}" class="btn btn-success btn-lg btn-block">
