@@ -16,6 +16,10 @@ use App\Http\Livewire\Admin\Subscribers\MySubScriptions as MySubs;
 use App\Http\Livewire\Admin\Subscribers\ViewSubScription as ViewSub;
 use App\Http\Livewire\Admin\SubscriptionMgt\Index as SubIndex;
 
+use App\Http\Livewire\Admin\Roles\Index  as RolesIndex;
+use App\Http\Livewire\Admin\Roles\Create   as RolesCreate;
+use App\Http\Livewire\Admin\Roles\Edit   as RolesEdit;
+
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\RTL;
@@ -78,6 +82,10 @@ Route::get('mysubscriptions', MySubs::class)->name('mysubscriptions');
 Route::get('view-subscription/{id}', ViewSub::class)->name('view-subscription');
 
 Route::get('all-subscriptions', SubIndex::class)->name('all-subscriptions');
+
+Route::get('role-management', RolesIndex::class)->name('role-management');
+Route::get('role-management/{id}', RolesEdit::class)->name('edit-role');
+ Route::get('new-role', RolesCreate::class)->name('new-role');
 
 Route::get('dashboard', Dashboard::class)->name('dashboard');
 Route::get('billing', Billing::class)->name('billing');
