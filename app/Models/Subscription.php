@@ -30,4 +30,10 @@ class Subscription extends Model
     {
         return $this->belongsToMany(Publication::class)->withPivot('copies'," 'total_price'");
     }
+
+    public function user(){
+
+        return $this->hasMany(User::class);
+
+    }
 }

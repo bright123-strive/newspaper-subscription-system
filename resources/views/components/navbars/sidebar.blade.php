@@ -82,6 +82,41 @@
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Pages</h6>
             </li>
+
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#reports"
+                    class="nav-link text-white {{ strpos(Request::route()->uri(), 'reports')=== false ? '' : 'active' }} "
+                    aria-controls="practice" role="button" aria-expanded="false">
+                    <i class="material-icons-round opacity-10">paid</i>
+                    <span class="nav-link-text ms-2 ps-1">Reports</span>
+                </a>
+                <div class="collapse {{ strpos(Request::route()->uri(), 'reports')=== false ? '' : 'show' }} "
+                    id="reports">
+                    <ul class="nav ">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ Route::currentRouteName() == 'active-subscribers' ? ' active bg-gradient-primary' : '' }} "
+                                href="{{ route('active-subscribers') }}">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Active Subscribers</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ Route::currentRouteName() == 'sub-by-region' ? ' active bg-gradient-primary' : '' }} "
+                                href="{{ route('sub-by-region') }}">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
+                                </div>
+                                <span class="nav-link-text ms-1">Subscribers By Region</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('dashboard') }}">

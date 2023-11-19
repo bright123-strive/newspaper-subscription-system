@@ -44,12 +44,13 @@
                         <div class=" me-3 my-3 text-end">
                             <a class="btn bg-gradient-dark mb-0" href="{{ route('new-user') }}"><i
                                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
-                                Role</a>
+                                User</a>
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
+                                        <?php  $id=1;  ?>
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -61,7 +62,7 @@
                                                 NAME</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                DESCRIPTION</th>
+                                                ROLE</th>
                                                 <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 CREATED AT</th>
@@ -70,31 +71,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($roles as $role)
+                                        @foreach ($users as $user)
 
 
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    {{$role->id }}
+                                                    {{$id++ }}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
 
-                                                    {{$role->name }}
+                                                    {{$user->name }}
                                                 </div>
                                             </td>
 
                                             <td class="align-middle text-center text-sm">
-                                                {{$role->description }}
+                                                {{$user->role->name }}
                                             </td>
                                             <td class="align-middle text-center">
-                                                {{$role->created_at }}
+                                                {{$user->created_at }}
                                             </td>
                                             <td class="align-middle">
                                                 <a rel="tooltip" class="btn btn-success btn-link"
-                                                    href="{{ route('edit-role', $role->id)}}" data-original-title=""
+                                                    href="{{ route('edit-user', $user->id)}}" data-original-title=""
                                                     title="">
                                                     <i class="material-icons">edit</i>
                                                     <div class="ripple-container"></div>

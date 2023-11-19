@@ -20,6 +20,13 @@ use App\Http\Livewire\Admin\Roles\Index  as RolesIndex;
 use App\Http\Livewire\Admin\Roles\Create   as RolesCreate;
 use App\Http\Livewire\Admin\Roles\Edit   as RolesEdit;
 
+use App\Http\Livewire\Admin\Users\Index  as UserIndex;
+use App\Http\Livewire\Admin\Users\Create   as UserCreate;
+use App\Http\Livewire\Admin\Users\Edit  as UserEdit;
+use App\Http\Livewire\Admin\Reports\ActiveSubscribers as ActvSub;
+use App\Http\Livewire\Admin\Reports\SubscriptionByRegion  as SubByRegion;
+
+
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\RTL;
@@ -56,7 +63,7 @@ Route::get('sign-up', Register::class)->middleware('guest')->name('register');
 Route::get('sign-in', Login::class)->middleware('guest')->name('login');
 
 Route::get('user-profile', UserProfile::class)->middleware('auth')->name('user-profile');
-Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');
+// Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');
 
 
 
@@ -86,6 +93,15 @@ Route::get('all-subscriptions', SubIndex::class)->name('all-subscriptions');
 Route::get('role-management', RolesIndex::class)->name('role-management');
 Route::get('role-management/{id}', RolesEdit::class)->name('edit-role');
  Route::get('new-role', RolesCreate::class)->name('new-role');
+
+ Route::get('user-management', UserIndex::class)->name('user-management');
+Route::get('user-management/{id}', UserEdit::class)->name('edit-user');
+ Route::get('new-user', UserCreate::class)->name('new-user');
+
+ Route::get('active-subscribers', ActvSub::class)->name('active-subscribers');
+ Route::get('subscriber-by-region', SubByRegion::class)->name('sub-by-region');
+//  Route::get('active-subscribers-report', ActvSub::class,'exportPdf')->name('convert-pdf');
+ Route::get('active-subscribers-report', [ActvSub::class, 'exportPdf'])->name('convert-pdf');
 
 Route::get('dashboard', Dashboard::class)->name('dashboard');
 Route::get('billing', Billing::class)->name('billing');

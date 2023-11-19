@@ -41,11 +41,19 @@
                                     the PRO product!</h6>
                             </div> --}}
                         </div>
+                       <div class="row">
                         <div class=" me-3 my-3 text-end">
                             <a class="btn bg-gradient-dark mb-0" href="{{ route('add-publication') }}"><i
                                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
                                 Publication</a>
                         </div>
+
+                         <div class=" me-3 my-3 text-end">
+                            <a class="btn bg-gradient-dark mb-0" href="{{ route('convert-pdf') }}"><i
+                                    class="material-icons text-sm">add</i>&nbsp;&nbsp;Download PDF
+                                </a>
+                        </div>
+                       </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
@@ -82,7 +90,7 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 STATUS</th>
-                                            <th class="text-secondary opacity-7">ACTION</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -99,7 +107,7 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    {{ $user->name  }}
+                                                    {{ $user->name }}
                                                 </div>
                                             </td>
                                             <td>
@@ -130,7 +138,7 @@
                                             <td class="align-middle text-center">
                                                 {{$subscription['status'] }}
                                             </td>
-                                            <td class="align-middle">
+                                            {{-- <td class="align-middle">
                                                 <a rel="tooltip" class="btn btn-success btn-link"
                                                     href="{{ route('view-subscription', $subscription['subscription_id'])}}" data-original-title=""
                                                     title="">
@@ -144,7 +152,7 @@
                                         Approve
                                         <div class="ripple-container"></div>
                                     </button>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -155,4 +163,5 @@
                 </div>
             </div>
         </div>
+
 

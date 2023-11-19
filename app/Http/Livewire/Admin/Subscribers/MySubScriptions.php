@@ -16,7 +16,6 @@ class MySubScriptions extends Component
     {
         // Get subscription data
         $userSubscriptions = Subscription::where('user_id', auth()->id())
-            ->where('status', 'active')
             ->get();
 
         // Process the data
