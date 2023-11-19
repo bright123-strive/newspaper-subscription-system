@@ -38,7 +38,7 @@ class Register extends Component
 
         auth()->login($user);
 
-        return redirect('subscribe');
+        return redirect('/confirmation-message');
     }
 
     public function render()

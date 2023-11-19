@@ -15,16 +15,20 @@ class Subscribe extends Controller
     public $subscriptionDuration= " ";
     public $userPublications = [];
     public $duration = "";
+    public $user;
+    public $userData;
+
+
 
     public function index()
     {
-        $user = auth()->user();
+        $this->user = auth()->user();
 
 
         return view('subscription.subscribe')->with([
            "publications" => Publication::all(),
-           "location"     => $user->location,
-           "region"     => $user->region,
+           "location"     => $this->user->location,
+           "region"     => $this->user->region,
         ]);
     }
 
@@ -33,6 +37,10 @@ class Subscribe extends Controller
 
     public function store(Request $request)
     {
+
+        $this->userData = auth()->user()->name;
+
+
         // Validate form data
         // (Your validation code goes here)
 
@@ -45,8 +53,8 @@ class Subscribe extends Controller
         // Create a subscription record
         $subscription = new Subscription([
             'user_id' => auth()->id(),
-            'location' => $request->input('location'),
-            'region' => $request->input('region'),
+            'location' =>$this->userData = auth()->user()->location,
+            'region' => $this->userData = auth()->user()->region,
             'start_date' => $startDate,
             'end_date' => $endDate,
             'duration' => $this->duration,

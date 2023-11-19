@@ -71,7 +71,7 @@
     <p id='message'>
       Congratulations, your account has been successfully created.
     </p>
-    <a href="#" id="contBtn">Continue</a>
+    <a href="{{ url('/subscription') }}" id="contBtn">Continue</a>
   </div>
 </div>
 <!-- partial -->

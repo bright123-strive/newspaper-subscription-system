@@ -81,8 +81,9 @@ Route::get('receipt', [Receipt::class, 'index'])->name('receipt');
 Route::get('/export-to-pdf', [Subscribe::class, 'exportPdf'])->name('export-to-pdf');
 
 Route::post('/subscribing', [Subscribe::class, 'store']);
-Route::get('subscription', [Subscribe::class, 'index']);
-Route::get('confirmation-message', [Message::class, 'index']);
+Route::get('/subscription', [Subscribe::class, 'index'])->name('subscription');
+Route::get('/confirmation-message', [Message::class, 'index'])->name('confirmation-message');
+
 
 
 Route::get('publications', PubIndex::class)->name('manage-publications');
