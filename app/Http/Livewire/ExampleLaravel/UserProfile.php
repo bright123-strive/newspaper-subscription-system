@@ -15,12 +15,15 @@ class UserProfile extends Component
             'user.name' => 'required',
             'user.email' => 'required|email|unique:users,email,'.$this->user->id,
             'user.phone' => 'required|max:10',
-            'user.about' => 'required:max:150',
-            'user.location' => 'required'
+            'user.location' => 'required',
+            'phone' => 'required|regex:/^\+[0-9]{1,15}$/|unique:users,phone',
+            'location' => 'required',
+            'region' => 'required',
+            'password' => 'required|min:8|confirmed|regex:/^(?=.*[A-Z])(?=.*[@_&])[A-Za-z\d@_&]+$/',
         ];
     }
 
-    public function mount() { 
+    public function mount() {
         $this->user = auth()->user();
     }
 
@@ -28,25 +31,25 @@ class UserProfile extends Component
 
         $this->validateOnly($propertyName);
     }
-    
+
     public function update()
     {
         $this->validate();
 
         if (env('IS_DEMO') && $this->user->id == 1){
-            
+
             if( auth()->user()->email == $this->user->email ){
-                
+
                 $this->user->save();
                 return back()->withStatus('Profile successfully updated.');
             }
-            
+
             return back()->with('demo', "You are in a demo version, you can't change the admin email." );
         };
 
         $this->user->save();
         return back()->withStatus('Profile successfully updated.');
-    
+
 }
 
 public function render()

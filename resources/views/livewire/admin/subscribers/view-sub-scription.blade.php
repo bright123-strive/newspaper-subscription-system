@@ -42,9 +42,9 @@
                             </div> --}}
                         </div>
                         <div class=" me-3 my-3 text-end">
-                            <a class="btn bg-gradient-dark mb-0" href="{{ route('add-publication') }}"><i
+                            {{-- <a class="btn bg-gradient-dark mb-0" href="{{ route('add-publication') }}"><i
                                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
-                                Publication</a>
+                                Publication</a> --}}
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">

@@ -30,6 +30,7 @@
                     <span class="nav-link-text ms-1">User Profile</span>
                 </a>
             </li>
+            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'user-management' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('user-management') }}">
@@ -48,6 +49,9 @@
                     <span class="nav-link-text ms-1">publication Management</span>
                 </a>
             </li>
+            @else
+
+            @endif
             {{-- <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'subscribe' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ url('/subscription') }}">

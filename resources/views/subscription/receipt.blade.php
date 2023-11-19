@@ -29,11 +29,11 @@
                         <address>
                             <strong>National Publication Limited</strong>
                             <br>
-                            Blantyre
+                            Chichiri, Blantyre
                             <br>
-                            Muwemi
+                            Malawi
                             <br>
-                            <abbr title="Phone">P:</abbr> (213) 484-6829
+                            <abbr title="Phone">Phone:</abbr> (+265) 884879894
                         </address>
                     </div>
 
