@@ -36,6 +36,7 @@ use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Tables;
 use App\Http\Controllers\Home\Index;
 use App\Http\Controllers\Subscription\Subscribe;
+use App\Http\Controllers\Subscription\Message;
 use App\Http\Controllers\Subscription\Receipt;
 use App\Http\Controllers\Reports\SubscriptionByRegion;
 use App\Http\Livewire\VirtualReality;
@@ -80,8 +81,9 @@ Route::get('receipt', [Receipt::class, 'index'])->name('receipt');
 Route::get('/export-to-pdf', [Subscribe::class, 'exportPdf'])->name('export-to-pdf');
 
 Route::post('/subscribing', [Subscribe::class, 'store']);
-Route::post('/subscribing', [Subscribe::class, 'store']);
-Route::get('subscription', [Subscribe::class, 'index'])->name('subscribe');
+Route::get('subscription', [Subscribe::class, 'index']);
+Route::get('confirmation-message', [Message::class, 'index']);
+
 
 Route::get('publications', PubIndex::class)->name('manage-publications');
 Route::get('add-new-publication', PubAdd::class)->name('add-publication');
