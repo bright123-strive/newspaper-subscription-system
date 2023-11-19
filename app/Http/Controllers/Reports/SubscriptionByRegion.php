@@ -1,22 +1,38 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Reports;
+namespace App\Http\Controllers\Reports;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Subscription;
-use Illuminate\Support\Facades\DB;
-use Livewire\Component;
-use PDF;
 use Carbon\Carbon;
+use PDF;
 
-class ActiveSubscribers extends Component
+
+
+use Illuminate\Support\Facades\DB;
+
+class SubscriptionByRegion extends Controller
 {
-    public $subscriptionData = [];
 
-    public function getUserData()
+public $region = '';
+
+
+    public function index()
     {
-        $this->subscriptionData = []; // Initialize the array
 
-        $userSubscriptions = Subscription::where('status', 'active')->get();
+        return view('livewire.admin.reports.region-report');
+    }
+
+    public function getUserData(Request $request)
+    {
+        $this->region = $request->input('region');
+
+
+
+        $userSubscriptions = Subscription::where('region', $this->region)->get();
+
+        $subscriptionData = [];
 
         // Process the data
         foreach ($userSubscriptions as $subscription) {
@@ -32,7 +48,7 @@ class ActiveSubscribers extends Component
             // Calculate remaining days
             $remainingDays = now()->diffInDays($subscription->end_date);
 
-            $this->subscriptionData[] = [
+            $subscriptionData[] = [
                 'subscription_id' => $subscription->id,
                 'user_id' => $subscription->user_id,
                 'location' => $subscription->location,
@@ -43,35 +59,25 @@ class ActiveSubscribers extends Component
                 'remaining_days' => $remainingDays,
             ];
         }
+        session(['subscriptionData' => $subscriptionData]);
 
-        // Store data in the session
-        session(['subscriptionData' => $this->subscriptionData]);
 
-        return $this->subscriptionData;
+        return view('livewire.admin.reports.region-report', compact('subscriptionData'));
+
     }
 
     public function exportPdf()
     {
-        $this->getUserData();
+        $this->getUserData(request()); // Pass the current request to getUserData
+
         // Retrieve data from the session
         $data = session('subscriptionData', []);
 
-        $pdf = PDF::loadView('livewire.admin.reports.activeSubscribersPdf', [
+        $pdf = PDF::loadView('livewire.admin.reports.regionpdf', [
             'sessionData' => $data,
         ]);
 
-        // Clear the session data
-        session()->forget('subscriptionData');
-
-        return $pdf->download("activesubscribers.pdf");
+        return $pdf->download("region.pdf");
     }
 
-    public function render()
-    {
-        $this->getUserData();
-
-        return view('livewire.admin.reports.active-subscribers', [
-            'subscriptionData' => $this->subscriptionData,
-        ]);
-    }
 }

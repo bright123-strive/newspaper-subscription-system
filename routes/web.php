@@ -24,6 +24,7 @@ use App\Http\Livewire\Admin\Users\Index  as UserIndex;
 use App\Http\Livewire\Admin\Users\Create   as UserCreate;
 use App\Http\Livewire\Admin\Users\Edit  as UserEdit;
 use App\Http\Livewire\Admin\Reports\ActiveSubscribers as ActvSub;
+use App\Http\Livewire\Admin\Reports\ExpiredSubscribers as ExpSub;
 use App\Http\Livewire\Admin\Reports\SubscriptionByRegion  as SubByRegion;
 
 
@@ -36,6 +37,7 @@ use App\Http\Livewire\Tables;
 use App\Http\Controllers\Home\Index;
 use App\Http\Controllers\Subscription\Subscribe;
 use App\Http\Controllers\Subscription\Receipt;
+use App\Http\Controllers\Reports\SubscriptionByRegion;
 use App\Http\Livewire\VirtualReality;
 use GuzzleHttp\Middleware;
 
@@ -99,7 +101,13 @@ Route::get('user-management/{id}', UserEdit::class)->name('edit-user');
  Route::get('new-user', UserCreate::class)->name('new-user');
 
  Route::get('active-subscribers', ActvSub::class)->name('active-subscribers');
+ Route::get('expired-subscribers', ExpSub::class)->name('expired-subscribers');
  Route::get('subscriber-by-region', SubByRegion::class)->name('sub-by-region');
+ Route::post('get-region-report', [SubscriptionByRegion::class, 'getUserData']);
+
+ Route::get('reports', [SubscriptionByRegion::class, 'index'])->name('report-region');
+ Route::get('pdf-region', [SubscriptionByRegion::class, 'exportPdf'])->name('region-pdf');
+
 //  Route::get('active-subscribers-report', ActvSub::class,'exportPdf')->name('convert-pdf');
  Route::get('active-subscribers-report', [ActvSub::class, 'exportPdf'])->name('convert-pdf');
 

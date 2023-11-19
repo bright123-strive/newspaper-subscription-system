@@ -14,17 +14,15 @@ use Illuminate\Support\Facades\DB;
 class ExpiredSubscribers extends Component
 {
 
-
-
-
     public $subscriptionData = [];
-    public function getUserData(){
 
-        $userSubscriptions = Subscription::where('status','inactive')->get();
+    public function getUserData()
+    {
+        $this->subscriptionData = []; // Initialize the array
 
+        $userSubscriptions = Subscription::where('status', 'inactive')->get();
 
         // Process the data
-
         foreach ($userSubscriptions as $subscription) {
             // Get publication subscription data
             $publicationSubscriptionData = DB::table('publication_subscription')
@@ -48,19 +46,16 @@ class ExpiredSubscribers extends Component
                 'total_price' => $publicationSubscriptionData->total_price,
                 'remaining_days' => $remainingDays,
             ];
-
-           session(['subscriptionData' => $this->subscriptionData]);
-
-            return $this->subscriptionData;
         }
 
+        // Store data in the session
+        session(['subscriptionData' => $this->subscriptionData]);
 
+        return $this->subscriptionData;
     }
 
     public function exportPdf()
     {
-
-
         $this->getUserData();
         // Retrieve data from the session
         $data = session('subscriptionData', []);
@@ -69,19 +64,21 @@ class ExpiredSubscribers extends Component
             'sessionData' => $data,
         ]);
 
-        return $pdf->download("expiredsubscribers.pdf");
+        // Clear the session data
+        session()->forget('subscriptionData');
+
+        return $pdf->download("activesubscribers.pdf");
     }
 
     public function render()
     {
-
         $this->getUserData();
 
-
-        return view('livewire.admin.reports.expired-subscribers',[
+        return view('livewire.admin.reports.expired-subscribers', [
             'subscriptionData' => $this->subscriptionData,
         ]);
     }
+
     // public function render()
     // {
     //     return view('livewire.admin.reports.expired-subscribers');

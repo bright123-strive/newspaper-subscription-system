@@ -33,7 +33,7 @@ class Index extends Component
     public function render()
     {
 
-        $userSubscriptions = Subscription::all();
+        $userSubscriptions = Subscription::where('status','active')->get();
 
 
     // Process the data
