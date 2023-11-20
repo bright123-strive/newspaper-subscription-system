@@ -8,7 +8,7 @@
                             <div
                                 class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
                                 <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
-                                    style="background-image: url('../assets/img/illustrations/illustration-signup.jpg'); background-size: cover;">
+                                    style="background-image: url('../assets/img/news.jpg'); background-size: cover;">
                                 </div>
                             </div>
                             <div
@@ -16,7 +16,7 @@
                                 <div class="card card-plain">
                                     <div class="card-header">
                                         <h4 class="font-weight-bolder">Sign Up</h4>
-                                        <p class="mb-0">Enter your name, email and password to register</p>
+                                        <p class="mb-0">creat your account to subscribe</p>
                                     </div>
                                     <div class="card-body">
                                         <form wire:submit.prevent ="store">
@@ -29,7 +29,7 @@
                                             @error('name')
                                             <p class='text-danger inputerror'>{{ $message }} </p>
                                             @enderror
-
+                                              <br>
                                             <div class="input-group input-group-outline @if(strlen($phone?? '') > 0) is-filled @endif">
                                                 <label class="form-label">Phone</label>
                                                 <input wire:model="phone" type="text" class="form-control">

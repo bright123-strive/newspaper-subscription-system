@@ -94,12 +94,12 @@
                                                 {{$user->created_at }}
                                             </td>
                                             <td class="align-middle">
-                                                <a rel="tooltip" class="btn btn-success btn-link"
+                                                {{-- <a rel="tooltip" class="btn btn-success btn-link"
                                                     href="{{ route('edit-user', $user->id)}}" data-original-title=""
                                                     title="">
                                                     <i class="material-icons">edit</i>
                                                     <div class="ripple-container"></div>
-                                                </a>
+                                                </a> --}}
 
 
                                             </td>

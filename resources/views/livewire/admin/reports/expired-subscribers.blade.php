@@ -39,12 +39,6 @@
                             </div> --}}
                         </div>
                        <div class="row">
-                        <div class=" me-3 my-3 text-end">
-                            <a class="btn bg-gradient-dark mb-0" href="{{ route('add-publication') }}"><i
-                                    class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
-                                Publication</a>
-                        </div>
-
                          <div class=" me-3 my-3 text-end">
                             <a class="btn bg-gradient-dark mb-0" href="{{ route('convert-pdf') }}"><i
                                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Download PDF

@@ -12,19 +12,19 @@
 <body>
 
     <div class="flex flex-col min-h-screen  dark:bg-gray-800">
-        <header class="flex flex-col lg:flex-row items-center bg-sky-700 justify-between text-blue-600 px-8 py-4 border-b bg-sky-500 dark:border-gray-700">
+        <header class="flex flex-col lg:flex-row items-center bg-slate-100 justify-between text-blue-600 px-8 py-4 border-b bg-sky-500 dark:border-gray-700">
             <div class="flex items-center space-x-2">
               <!-- Logo placeholder -->
               <img src="{{ asset('images/npl-logo.jpg') }}" alt="Logo"  class="h-12 w-12">
 
-              <h1 class="text-2xl font-bold text-gray-900 text-white dark:text-gray-100">The nation</h1>
+              <h1 class="text-5xl font-bold text-gray-900 text-black dark:text-gray-100">THE NATION</h1>
             </div>
 
             <nav class="mt-4 lg:mt-0 lg:ml-4 space-x-4 flex-grow lg:flex lg:justify-center">
-              <a class="text-white dark:text-gray-100 hover:underline" href="#" rel="ugc">Features</a>
-              <a class="text-white dark:text-gray-100 hover:underline" href="#" rel="ugc">Pricing</a>
-              <a class="text-white dark:text-gray-100 hover:underline" href="#" rel="ugc">Testimonials</a>
-              <a class="text-white dark:text-gray-100 hover:underline" href="{{ route('login') }}" rel="ugc">Login</a>
+              <a class="text-black dark:text-gray-100 hover:underline" href="#" rel="ugc">Features</a>
+              <a class="text-black dark:text-gray-100 hover:underline" href="#" rel="ugc">Pricing</a>
+              <a class="text-black dark:text-gray-100 hover:underline" href="#" rel="ugc">Register</a>
+              <a class="text-black dark:text-gray-100 hover:underline" href="{{ route('login') }}" rel="ugc">Login</a>
             </nav>
 
             <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
@@ -43,7 +43,7 @@
                     Get Started
                 </button>
             </section> --}}
-            <section class="flex bg-gradient-to-r from-rose-300 via-rose-200 to-rose-100 items-center justify-center space-x-8 px-8 py-20 bg-cover">
+            {{-- <section class="flex bg-gradient-to-r from-rose-300 via-rose-200 to-rose-100 items-center justify-center space-x-8 px-8 py-20 bg-cover">
                 <!-- Content on the left -->
                 <div class="flex-grow text-center">
                     <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100">Stay Informed, Subscribe Now!</h2>
@@ -57,9 +57,23 @@
 
                 <!-- Image on the right with added margin -->
                 <div class="flex-shrink-0" style="margin-right: 1rem;">
-                    <img src="{{ asset('images/img1.png') }}" alt="Your Image" class="w-52 h-64 object-cover">
+                    <img src="{{ asset('images/img1.png') }}" alt="Your Image" class="w-50 h-50 object-cover">
+                </div>
+            </section> --}}
+
+            <section class="flex flex-col bg-gradient-to-r from-purple-200 via-purple-300 to-purple-400 background-size: contain background-position: right top items-center justify-center space-x-8 px-8 py-20 bg-cover">
+                <div class="flex-grow text-center mx-auto">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100">Stay Informed, Subscribe Now!</h2>
+                    <p class="max-w-xl text-xl text-center text-gray-600 dark:text-gray-400 mx-auto">
+                        Get the latest news delivered right to your doorstep. Subscribe to Newsly today!
+                    </p>
+                    <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+                        Subscribe Now
+                    </a>
                 </div>
             </section>
+
+
           <section id="features" class="flex flex-col space-y-4 px-8 py-16">
             <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100">Why Newsly?</h2>
             <div class="grid gap-8 md:grid-cols-3">
@@ -84,24 +98,23 @@
             <div class="grid gap-8 md:grid-cols-3">
               <div class="flex flex-col items-center space-y-4 p-8 border rounded-md">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Monthly</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-gray-100">$10</p>
-                <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
-                  Subscribe Now
-                </button>
+
+                <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+                    Subscribe Now
+                </a>
               </div>
               <div class="flex flex-col items-center space-y-4 p-8 border-2 border-blue-500 rounded-md">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Quarterly</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-gray-100">$25</p>
-                <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
-                  Subscribe Now
-                </button>
+
+                <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+                    Subscribe Now
+                </a>
               </div>
               <div class="flex flex-col items-center space-y-4 p-8 border rounded-md">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Yearly</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-gray-100">$90</p>
-                <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
-                  Subscribe Now
-                </button>
+                <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+                    Subscribe Now
+                </a>
               </div>
             </div>
           </section>
@@ -112,17 +125,17 @@
                 <p class="text-gray-600 dark:text-gray-400">
                   "Newsly is my go-to source for news. It's reliable and timely."
                 </p>
-                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- Jane Doe</h4>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- Bright Tembo</h4>
               </div>
               <div class="flex flex-col items-center space-y-2 p-4 border rounded-md">
                 <p class="text-gray-600 dark:text-gray-400">"I love the in-depth analysis in Newsly."</p>
-                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- John Smith</h4>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- Ntchindi Njalwa</h4>
               </div>
               <div class="flex flex-col items-center space-y-2 p-4 border rounded-md">
                 <p class="text-gray-600 dark:text-gray-400">
                   "Getting the newspaper at my doorstep every morning is very convenient."
                 </p>
-                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- Mary Johnson</h4>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100">- Brian Nkondo</h4>
               </div>
             </div>
           </section>
@@ -274,9 +287,9 @@
               <span class="sr-only">Instagram</span>
             </a>
           </div>
-          <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
+          <a href="{{ url('/subscription') }}" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
             Subscribe Now
-          </button>
+        </a>
         </footer>
       </div>
 

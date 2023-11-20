@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets') }}/img/apple-icon.png">
   <link rel="icon" type="image/png" href="{{ asset('assets') }}/img/favicon.png">
   <title>
-    Auditconsult
+    NPL
   </title>
 
   <!-- Metas -->
@@ -88,7 +88,7 @@
    <form method="post" action="get-region-report" >
    @csrf
    @method('POST')
-        >
+
         <hr>
         <div class="row">
             <div class="col-md-3">
@@ -112,74 +112,6 @@
     </form>
     <hr>
 
-{{--
-    <table>
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>Week Number</th>
-                <th>Date</th>
-                <th>Total Hours</th>
-            </tr>
-        </thead>
-        @if(isset($data))
-        <tbody wire:ignore>
-            @foreach ($data as $user_id => $weeks)
-                @foreach ($weeks as $weekNumber => $weekData)
-                    @foreach ($weekData['dates'] as $date => $total_hours)
-                        <tr>
-                            <td>{{ $user_id }}</td>
-                            <td>{{ $weekNumber }}</td>
-                            <td>{{ $date }}</td>
-                            <td>{{ $total_hours }}</td>
-                        </tr>
-                    @endforeach
-                @endforeach
-            @endforeach
-        </tbody>
-    </table>
-    @else
-    <tbody>
-
-                    <tr>
-                        <td>No data found</td>
-
-                    </tr>
-
-    </tbody>
-</table>
-@endif --}}
-
-{{--
-@if (isset($data))
-    @foreach ($data as $user_id => $userWeeks)
-        @php
-       $user = \App\Models\User::find($user_id);// Use the correct namespace for your User model
-        @endphp
-
-        <h6>User Name: {{ $user->name }}</h6> <!-- Display the user's name -->
-
-        @foreach ($userWeeks as $weekNumber => $weekData)
-            <h5>Week Number: {{ $weekNumber }}</h5>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Total Hours</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($weekData['dates'] as $date => $total_hours)
-                        <tr>
-                            <td>{{ $date }}</td>
-                            <td>{{ $total_hours }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endforeach
-    @endforeach
-@endif --}}
 <div>
     <a  class="btn btn-primary btn-lg" href="{{route('convert-pdf') }}">Export PDF</a>
 @if (isset($subscriptionData))
@@ -202,11 +134,7 @@
                             </div> --}}
                         </div>
                        <div class="row">
-                        <div class=" me-3 my-3 text-end">
-                            <a class="btn bg-gradient-dark mb-0" href="{{ route('add-publication') }}"><i
-                                    class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
-                                Publication</a>
-                        </div>
+
 
                          <div class=" me-3 my-3 text-end">
                             <a class="btn bg-gradient-dark mb-0" href="{{ route('region-pdf') }}"><i
