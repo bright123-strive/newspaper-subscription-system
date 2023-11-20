@@ -14,6 +14,11 @@ class Subscription extends Model
 
     protected $primaryKey = 'id';
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+    ];
+
     protected $fillable = [
         'user_id',
         'publication_id',

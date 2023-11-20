@@ -361,14 +361,14 @@
                 <label class="form-label">Location</label>
                 <div class="input-group input-group-outline my-3">
 
-                    <input type="text"  name="location"  value={{ $location }}  class="form-control" disabled>
+                    <input type="text"  name="location"  value={{ $location }}  class="form-control" >
                 </div>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Region</label>
                 <div class="input-group input-group-outline my-3">
 
-                    <input type="text"  name="region"  value={{ $region }} class="form-control" disabled>
+                    <input type="text"  name="region"  value={{ $region }} class="form-control">
                 </div>
             </div>
         </div>

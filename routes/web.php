@@ -39,6 +39,7 @@ use App\Http\Controllers\Subscription\Subscribe;
 use App\Http\Controllers\Subscription\Message;
 use App\Http\Controllers\Subscription\Receipt;
 use App\Http\Controllers\Reports\SubscriptionByRegion;
+use App\Http\Controllers\Reports\SubscriptionPerUser;
 use App\Http\Livewire\VirtualReality;
 use GuzzleHttp\Middleware;
 
@@ -107,6 +108,9 @@ Route::get('user-management/{id}', UserEdit::class)->name('edit-user');
  Route::get('expired-subscribers', ExpSub::class)->name('expired-subscribers');
  Route::get('subscriber-by-region', SubByRegion::class)->name('sub-by-region');
  Route::post('get-region-report', [SubscriptionByRegion::class, 'getUserData']);
+ Route::post('get-subscription-per-user', [SubscriptionPerUser::class, 'displaySubscriptionPeriods']);
+ Route::get('report-subscription-per-user', [SubscriptionPerUser::class, 'index'])->name('subscription-per-user');
+
 
  Route::get('reports', [SubscriptionByRegion::class, 'index'])->name('report-region');
  Route::get('pdf-region', [SubscriptionByRegion::class, 'exportPdf'])->name('region-pdf');
