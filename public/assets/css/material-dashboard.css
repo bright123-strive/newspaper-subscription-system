@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v5.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 
  @media (max-width:500px){
 
@@ -14021,6 +14015,8 @@ label,
 
 .bg-gradient-dark {
   background-image: linear-gradient(195deg, #42424a 0%, #191919 100%); }
+  .bg-gradient-dark1 {
+    background-color: #626780; }
 
 .bg-gradient-faded-primary {
   background-image: radial-gradient(370px circle at 80% 50%, rgba(233, 30, 99, 0.6) 0, #c1134e 100%); }
