@@ -398,7 +398,7 @@
         </div>
 
         <hr>
-             <p>select one or all publications</p>
+             <p>select one or all publications number of copies per day</p>
         <hr>
 
 
@@ -412,7 +412,7 @@
                         name="publication[]"
                         value="{{ $publication->id }}"
                         data-price="{{ $publication->price }}"
-                    />
+                    required/>
                     <label class="custom-control-label">{{ $publication->name }}</label>
                 </div>
 
@@ -424,7 +424,7 @@
                             class="form-control copy-input"
                             placeholder="Copies"
                             oninput="updateAmount()"
-                        />
+                       required />
                     </div>
                 </div>
             @endforeach
@@ -469,57 +469,41 @@
     <script src="{{ asset('assets') }}/js/plugins/flatpickr.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/dropzone.min.js"></script>
     <script>
-        if (document.getElementById('editor')) {
-            var quill = new Quill('#editor', {
-                theme: 'snow' // Specify theme in configuration
+        document.addEventListener("DOMContentLoaded", function() {
+          // Function to validate form fields
+          function validateForm() {
+            // Get form and required fields
+            var form = document.querySelector("form");
+            var requiredFields = form.querySelectorAll("[required]");
+
+            // Flag to track form validity
+            var isValid = true;
+
+            // Check each required field
+            requiredFields.forEach(function(field) {
+              if (field.value.trim() === "") {
+                isValid = false;
+              }
             });
-        }
 
-        if (document.getElementById('choices-multiple-remove-button')) {
-            var element = document.getElementById('choices-multiple-remove-button');
-            const example = new Choices(element, {
-                removeItemButton: true
-            });
+            // Display validation result
+            if (!isValid) {
+              alert("Please fill in all required fields before submitting.");
+            }
 
-            example.setChoices(
-                [{
-                        value: 'One',
-                        label: 'Label One',
-                        disabled: true
-                    },
-                    {
-                        value: 'Two',
-                        label: 'Label Two',
-                        selected: true
-                    },
-                    {
-                        value: 'Three',
-                        label: 'Label Three'
-                    },
-                ],
-                'value',
-                'label',
-                false,
-            );
-        }
+            return isValid;
+          }
 
-        if (document.querySelector('.datetimepicker')) {
-            flatpickr('.datetimepicker', {
-                allowInput: true
-            }); // flatpickr
-        }
-
-        Dropzone.autoDiscover = false;
-        var drop = document.getElementById('dropzone')
-        var myDropzone = new Dropzone(drop, {
-            url: "/file/post",
-            addRemoveLinks: true
-
+          // Attach the validateForm function to the form submission event
+          document.querySelector("form").addEventListener("submit", function(event) {
+            if (!validateForm()) {
+              // Prevent form submission if validation fails
+              event.preventDefault();
+            }
+          });
         });
+      </script>
 
-
-
-    </script>
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

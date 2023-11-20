@@ -20,7 +20,7 @@ class ExpiredSubscribers extends Component
     {
         $this->subscriptionData = []; // Initialize the array
 
-        $userSubscriptions = Subscription::where('status', 'inactive')->get();
+        $userSubscriptions = Subscription::where('status', 'expired')->get();
 
         // Process the data
         foreach ($userSubscriptions as $subscription) {

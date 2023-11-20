@@ -24,7 +24,7 @@ class PublicationsSeeder extends Seeder
         DB::table('publications')->insert([
             'name' => 'WEEKEND NATION',
             'price' => '1250',
-             'status' => '1250',
+             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now()
         ]);
