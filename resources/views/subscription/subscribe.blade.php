@@ -254,20 +254,9 @@
             </a>
           </div> --}}
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="input-group input-group-outline">
-                <label class="form-label">Search here</label>
-                <input type="text" class="form-control text-white" onfocus="focused(this)" onfocusout="defocused(this)">
-              </div>
-            </div>
+            
             <ul class="navbar-nav  justify-content-end">
-              <li class="nav-item">
-                <a href="javascript:;" class="nav-link text-body p-0 position-relative">
-                  <i class="material-icons me-sm-1 text-white">
-                account_circle
-              </i>
-                </a>
-              </li>
+             
               <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                   <div class="sidenav-toggler-inner">
@@ -277,23 +266,8 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item px-3">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                  <i class="material-icons fixed-plugin-button-nav cursor-pointer text-white">
-                settings
-              </i>
-                </a>
-              </li>
-              <li class="nav-item dropdown pe-2">
-                <a href="javascript:;" class="nav-link text-body p-0 position-relative" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="material-icons cursor-pointer text-white">
-                notifications
-              </i>
-                  <span class="position-absolute top-5 start-100 translate-middle badge rounded-pill bg-danger border border-white small py-1 px-2">
-                    <span class="small">11</span>
-                    <span class="visually-hidden">unread notifications</span>
-                  </span>
-                </a>
+              
+            
                 <ul class="dropdown-menu dropdown-menu-end p-2 me-sm-n4" aria-labelledby="dropdownMenuButton">
                   <li class="mb-2">
                     <a class="dropdown-item border-radius-md" href="javascript:;">
@@ -311,22 +285,7 @@
                       </div>
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                      <div class="d-flex align-items-center py-1">
-                        <div class="my-auto">
-                          <span class="material-icons">
-                            headphones
-                          </span>
-                        </div>
-                        <div class="ms-2">
-                          <h6 class="text-sm font-weight-normal mb-0">
-                            New album by Travis Scott
-                          </h6>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
+                
                   <li>
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                       <div class="d-flex align-items-center py-1">
@@ -400,9 +359,38 @@
         <hr>
              <p>select one or all publications number of copies per day</p>
         <hr>
-
-
+        <div id="publication-message" class="mt-3 text-danger"></div>
         @if($publications)
+        <div class="row">
+            @foreach($publications as $publication)
+                <div class="form-check">
+                    <input
+                        class="form-check-input publication-checkbox"
+                        type="checkbox"
+                        name="publication[]"
+                        value="{{ $publication->id }}"
+                        data-price="{{ $publication->price }}"
+                      
+                    />
+                    <label class="custom-control-label">{{ $publication->name }}</label>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="input-group input-group-outline my-3">
+                        <input
+                            type="number"
+                            name="copies[]"
+                            class="form-control copy-input"
+                            placeholder="Copies"
+                            oninput="updateAmount()"
+                           
+                        />
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
+        {{-- @if($publications)
         <div class="row">
             @foreach($publications as $publication)
                 <div class="form-check">
@@ -429,7 +417,7 @@
                 </div>
             @endforeach
         </div>
-        @endif
+        @endif --}}
         <button type="submit" class="btn bg-gradient-success">Subscribe</button>
     </form>
 </div>
@@ -445,6 +433,20 @@
     <script src="{{ asset('assets') }}/js/core/bootstrap.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('form').submit(function (e) {
+              // Check if at least one checkbox is checked
+              if ($('.publication-checkbox:checked').length === 0) {
+                  e.preventDefault(); // Prevent form submission
+
+                  // Display the message above the form
+                  $('#publication-message').text('At least one publication must be selected.');
+              }
+          });
+      });
+  </script>
 
 <!-- For PDF export -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
@@ -503,7 +505,7 @@
           });
         });
       </script>
-
+     
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

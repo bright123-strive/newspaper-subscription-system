@@ -42,18 +42,18 @@ table {
             <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
                 <!-- Header Section -->
                 <div class="row">
+                   
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <address>
                             <strong>National Publication Limited</strong>
                             <br>
-                            Blantyre
+                            Chichiri, Blantyre
                             <br>
-                            Muwemi
+                            Malawi
                             <br>
-                            <abbr title="Phone">P:</abbr> (213) 484-6829
+                            <abbr title="Phone">Phone:</abbr> (+265) 884879894
                         </address>
                     </div>
-
                     <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                         <p>
                             <em>Date: {{ $sessionData['startDate']->toFormattedDateString() }}</em>

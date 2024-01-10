@@ -49,10 +49,13 @@
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
+                                    <?php  $id =1 ; ?>
                                     <thead>
                                         <tr>
-
-
+                                            <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            #</th>
+                                              
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 PUBLICATION</th>
@@ -73,6 +76,11 @@
 
 
                                         <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    {{$id ++}}
+                                                </div>
+                                            </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     {{$subscription->publication_name}}

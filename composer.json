@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.6",
         "livewire/livewire": "^2.8",
         "nesbot/carbon": "^2.71",
-        "phpmailer/phpmailer": "^6.8"
+        "phpmailer/phpmailer": "^6.9"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",

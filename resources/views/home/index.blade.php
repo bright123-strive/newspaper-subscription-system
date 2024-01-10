@@ -74,7 +74,7 @@
 
 
           <section id="features" class="flex flex-col space-y-4 px-8 py-16">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100">Why Newsly?</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100">Why NPL?</h2>
             <div class="grid gap-8 md:grid-cols-3">
               <div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Latest News</h3>

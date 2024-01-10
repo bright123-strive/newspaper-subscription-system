@@ -58,15 +58,11 @@ class Login extends Component
     }
 
     session()->regenerate();
-//  $user = auth()->user();
-//      dd('Before increment', $user->login_count);
+  
+    // Get the intended URL from the session, or use a default URL
+    $intendedUrl = session()->pull('url.intended', route('dashboard'));
 
-//      $user->increment('login_count', +50);
-
-//     // Debugging: Check if the increment operation has taken effect
-//     dd('After increment', $user->login_count);
-
-    return redirect('/dashboard');
+    return redirect($intendedUrl);
 }
 
 }

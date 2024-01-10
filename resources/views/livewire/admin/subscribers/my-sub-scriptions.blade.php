@@ -49,6 +49,7 @@
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
+                                    <?php  $id =1 ; ?>
                                     <thead>
                                         <tr>
                                             <th
@@ -80,7 +81,7 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    {{$subscription['subscription_id'] }}
+                                                    {{$id ++ }}
                                                 </div>
                                             </td>
                                             <td>
