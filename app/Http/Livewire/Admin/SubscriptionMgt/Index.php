@@ -9,6 +9,9 @@ use Carbon\Carbon;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use Illuminate\Console\Command;
+use App\Jobs\SendActivationEmail;
+use Illuminate\Support\Facades\Response; 
 
 
 
@@ -45,51 +48,44 @@ class Index extends Component
         $numberOfDays = $endDate->diffInDays($startDate);
 
         //send an email
-        require base_path("vendor/autoload.php");
-
-        $mail = new PHPMailer(true);
         try {
-            //Server settings
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();
-        $mail->Host = 'smtp.office365.com';             //  smtp host
-        $mail->SMTPAuth = true;
-        $mail->Username = 'bright.tembo@auditconsult.mw';   //  sender username
-        $mail->Password = 'Bmtechs_123';       // sender password
-        $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
-        $mail->Port = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            // Create a new instance of PHPMailer
+            $mail = new PHPMailer(true);
 
-        $mail->setFrom('bright.tembo@auditconsult.mw', 'NPL');
-        // $mail->addAddress($receivers, 'Reciever');     //Add a recipient
-        // $mail->addAddress($receivers);
+            // Server settings
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.office365.com'; 
+            $mail->SMTPAuth = true;
+            $mail->Username = 'bright.tembo@auditconsult.mw'; 
+            $mail->Password = 'Bmtechs_123';  
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
 
+          
+            $mail->setFrom('bright.tembo@auditconsult.mw', 'NPL'); 
+            $mail->addAddress($userEmail, $userName);
 
-         $mail->addAddress($userEmail, 'Reciever');
-                                                                    //Name is optional
-        $mail->addReplyTo('bright.tembo@auditconsult.mw', 'Information');
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Activation Email';
+            $mail->Body = "Hi {$userName},<br><br>Your account has been activated. Your subscription will expire in {$numberOfDays} days.<br><br>Kind regards,<br>Your App";
 
-
-
-            
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'News Subscription Activation';
-            $mail->Body    = "Hi '.$userName.',<br><br>  Your News subscription has been activated and please note the subscription will expire in '.$numberOfDays.' Days <br><br><br>Log in to National Publicate news portal <a href='http://127.0.0.1:8000/mysubscriptions'>here</a><br><br>Kind regards,<br>
-            NPL";
-            // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-
+            // Send email
             $mail->send();
+
             echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-
-
+        
 
                 
         return redirect(route('all-subscriptions'))->with('status', 'Subscription activated.');
         
+        
     }
+
 
     public function render()
     {

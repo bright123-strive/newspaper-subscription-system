@@ -110,9 +110,10 @@
               </div>
             </div>
 
-              <div class="col-md-2">
+           
+            </div>
+            <div class="col-md-2">
                 <button type="submit" class="btn btn-info btn-show-report">Show Report</button>
-              </div>
             </div>
 
 

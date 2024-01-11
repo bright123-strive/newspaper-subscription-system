@@ -84,6 +84,7 @@
 <div class="container-fluid py-4 bg-gray-200">
 
     <div class="row">
+        <p style="color:black">REPORT TO SHOW SUBSCRIPTION PER REGION</p>
    <hr>
    <form method="post" action="get-region-report" >
    @csrf
@@ -102,18 +103,19 @@
                 </select>
               </div>
             </div>
-
-              <div class="col-md-2">
-                <button type="submit" class="btn btn-info btn-show-report">Show Report</button>
-              </div>
+                
+             
             </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-info btn-show-report">Show Report</button>
+           </div>
 
 
     </form>
     <hr>
 
 <div>
-    <a  class="btn btn-primary btn-lg" href="{{route('convert-pdf') }}">Export PDF</a>
+    
 @if (isset($subscriptionData))
 
         <!-- Navbar -->
@@ -136,11 +138,11 @@
                        <div class="row">
 
 
-                         <div class=" me-3 my-3 text-end">
+                         {{-- <div class=" me-3 my-3 text-end">
                             <a class="btn bg-gradient-dark mb-0" href="{{ route('region-pdf') }}"><i
                                     class="material-icons text-sm">add</i>&nbsp;&nbsp;Download PDF
                                 </a>
-                        </div>
+                        </div> --}}
                        </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">

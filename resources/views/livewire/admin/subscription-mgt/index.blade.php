@@ -137,13 +137,20 @@
                                                     <i class="fa fa-eye"></i>
                                                     <div class="ripple-container"></div>
                                                 </a>
-
-                                                <button type="button" class="btn btn-success btn-lg btn-link" data-original-title="" title=""
+                                                @if($subscription['status'] == "active" || $subscription['status'] == "expired" )
+                                                   
+                                                @else
+                                                <button type="button" class="btn btn-primary btn-sm btn-link" data-original-title="" title=""
                 
-                                            wire:click="activateSubscription('{{ $subscription['subscription_id'] }}')">
-                                        Approve
-                                        <div class="ripple-container"></div>
-                                    </button>
+                                                wire:click="activateSubscription('{{ $subscription['subscription_id'] }}')"
+                                                onclick="refreshPage()">
+                                                
+                                                
+                                            Approve
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        @endif
+                                               
                                             </td>
                                         </tr>
                                         @endforeach
@@ -155,4 +162,4 @@
                 </div>
             </div>
         </div>
-
+        

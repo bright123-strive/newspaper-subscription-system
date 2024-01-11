@@ -34,8 +34,9 @@
                             <label for='role_id'>Roles</label>
                             <select wire:model.lazy="role_id" class="form-select border border-2 p-2"
                                 data-style="select-with-transition" title="" data-size="100" id="role">
+                                <option value="">select role</option>
                                 @foreach ($roles as $role)
-                                        <option value="">select role</option>
+                                        
                                         <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : ''}}>{{ $role->name }}
                                         </option>
                                 @endforeach

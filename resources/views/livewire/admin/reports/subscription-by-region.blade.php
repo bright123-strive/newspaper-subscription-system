@@ -1,6 +1,7 @@
 <div class="container-fluid py-4 bg-gray-200">
 
     <div class="row">
+        <p style="color:black">REPORT TO SHOW SUBSCRIPTION PER REGION</p>
    <hr>
    <form wire:submit.prevent ="getUserData">
         <hr>

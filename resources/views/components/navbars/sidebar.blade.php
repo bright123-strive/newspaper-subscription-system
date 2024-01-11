@@ -21,7 +21,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'user-profile' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('user-profile') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -29,7 +29,7 @@
                     </div>
                     <span class="nav-link-text ms-1">User Profile</span>
                 </a>
-            </li>
+            </li> --}}
             @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'user-management' ? ' active bg-gradient-primary' : '' }} "
